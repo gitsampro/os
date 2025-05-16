@@ -1,0 +1,331 @@
+/* Signup Form Styles */
+:root {
+    --primary-text-color: #183b56;
+    --secondary-text-color: #161717;
+    --accent-color: #10A37F;
+    --accent-color-dark: #0673b7;
+    --nav-bg-color: rgba(24, 24, 37, 0.8);
+    --nav-text-color: rgb(69, 0, 152);
+    --nav-hover-color: #a78bfa;
+    --all-white: #ffffff;
+    --nav-link-hover: #080707;
+    --all-black: #000000;
+    --no-color-change: #fafafa1f;
+    --no-color-tranparent: #fafafa0c;
+    --border-color: #ffffff66;
+    --box-shadow: 0 0 5px #10a37f4d;
+
+    --success-color: #2e7d32;
+    --error-color: #c62828;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"poppins",sans-serif;
+}
+
+body {
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
+}
+
+.blurred-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: blur(8px);
+    pointer-events: none;
+    transform: scale(1.1); /* Slightly larger to prevent blur edges */
+    animation: scrollBackground 60s linear infinite;
+}
+
+@keyframes scrollBackground {
+    0% {
+        transform: scale(1.1) translateY(0);
+    }
+    100% {
+        transform: scale(1.1) translateY(-100%);
+    }
+}
+
+.blurred-background > * {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.form-logo {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
+
+.form-logo img {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.container {
+    
+     margin: 30px auto;
+     position: relative;
+     margin-top: realtive;
+     padding-top: 30px;
+     padding-bottom: 30px;
+     width: 450px;
+     z-index: 2;
+     max-width: 400px;
+     margin-inline: auto;
+     padding-inline: var(--padding-inline-section);
+     overflow: hidden;
+     padding: 1.5rem;
+     align-items: center;
+     background: transparent;
+     backdrop-filter: blur(10px);
+     -webkit-backdrop-filter: blur(10px);
+     border-radius: 12px;
+     /* border: 4px solid var(--all-white); */
+     border: 4px solid var(--border-color);
+     box-shadow: 0 20px 35px var(--no-color-change);
+}
+
+.form-title {
+    color: var(--nav-text-color);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+form{
+    margin:0 2rem;
+}
+.input-group{
+    position: relative;
+    margin-bottom: 25px;
+}
+.input-group i{
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--nav-text-color);
+}
+.input-group input{
+    width: 100%;
+    padding: 10px 40px;
+    border: 1px solid var(--nav-text-color);
+    border-radius: 5px;
+    background: var(--no-color-tranparent);
+    color: var(--primary-text-color);
+}
+.input-group input:focus{
+    border-color: var(--accent-color);
+    outline: none;
+    box-shadow: var(--box-shadow);
+}
+.input-group label{
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secondary-text-color);
+    transition: 0.3s;
+    pointer-events: none;
+}
+.input-group input:focus + label,
+.input-group input:valid + label {
+    top: -5px;
+    left: 10px;
+    background: transparent;
+    padding: 0 7px;
+    font-size: 12px;
+    color: var(--accent-color);
+}
+.recover{
+    text-align:right;
+    font-size:1rem;
+    margin-bottom:1rem;
+}
+.recover a{
+    text-decoration:none;
+    /* color:var(--accent-color); */
+}
+.recover a:hover{
+    color:var(--nav-hover-color);
+    text-decoration:underline;
+}
+.btn{
+    width: 100%;
+    padding: 10px;
+    background: var(--accent-color-dark);
+    color: var(--all-white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    
+}
+.signButton{
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+    
+.btn:hover{
+    background: var(--nav-hover-color);
+}
+.or{
+    text-align: center;
+    margin: 20px 0;
+    color: var(--secondary-text-color);
+}
+.icons{
+    text-align: center;
+    margin: 20px 0;
+}
+.icons i{
+    font-size: 24px;
+    margin: 0 10px;
+    color: var(--secondary-text-color);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+.icons i:hover{
+    color: var(--accent-color);
+}
+.links{
+    text-align: center;
+}
+.links p{
+    color: var(--secondary-text-color);
+    margin-bottom: 10px;
+}
+.links button{
+    background: none;
+    border: none;
+    color: var(--accent-color);
+    cursor: pointer;
+    text-decoration: underline;
+}
+.links button:hover{
+    color: var(--nav-hover-color);
+}
+.messageDiv{
+    padding: 5px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+    color: var(--all-black);
+    background: var(--all-white);
+}
+.messageDiv.error{
+    background-color: var(--error-color);
+    color: var(--error-color);
+   
+}
+.messageDiv.success{
+    background-color: var(--success-color);
+    color: var(--success-color);
+    
+}
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .container#signup, .container#signIn {
+        width: 90%;
+        margin: 20px auto;
+    }
+    
+    .form-logo img {
+        max-width: 150px;
+    }
+    
+    .form-title {
+        font-size: 1rem;
+        font-weight: 200;
+    }
+    
+    .input-group input {
+        padding: 10px 35px;
+    }
+    
+    .btn {
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .form-logo img {
+        max-width: 120px;
+    }
+}
+.spin-image {
+    width: 200px;
+    height: auto;
+    animation: spin 50s linear infinite;
+    transform-origin: center center;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Dark Mode Toggle Styles */
+.dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#darkModeToggle {
+    background-color: var(--all-white);
+    border: 1px solid var(--all-black);
+    color: var(--all-black);
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+#darkModeToggle:hover {
+    background-color: var(--nav-hover-color);
+    border-color: var(--nav-text-color);
+    transform: scale(1.1);
+}
+
+#darkModeIcon {
+    transition: transform 0.3s ease;
+}
+
+#darkModeToggle:active #darkModeIcon {
+    transform: rotate(180deg);
+}
+
+#darkModeToggle i {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#darkModeToggle:hover i {
+    transform: rotate(10deg);
+}

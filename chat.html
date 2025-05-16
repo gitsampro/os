@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask a Question - PrayasOS Community</title>
+    <link rel="icon" type="image/png" href="./assets/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media-queries.css">
+    <link rel="stylesheet" href="chat-new.css">
+    <!-- Load Firebase SDK first -->
+    <script type="module" src="firebaseauth.js"></script>
+    <style>
+        .icon-header {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .feature-icon {
+            font-size: 1.2rem;
+            margin-right: 10px;
+            color: var(--accent-color);
+            width: 20px;
+            display: inline-block;
+        }
+
+        .chat-container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .question-form {
+            background: var(--all-white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 0.5rem;
+            color: var(--primary-text-color);
+            font-weight: 500;
+        }
+
+        .submit-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .questions-list {
+            background: var(--all-white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .page-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-section {
+            text-align: center;
+            /* margin: 9rem auto 2rem; */
+            margin-top: 10rem;
+            padding: 2rem;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 180px;
+        }
+
+        .header-section h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        .header-section p {
+            color: var(--secondary-text-color);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <!-- nav bar -->
+    <nav>
+        <div class="container main-nav flex">
+            <a href="#" class="company-logo">
+                <img src="./assets/asset 1.png" alt="company logo" id="mainlogo">
+            </a>
+            <div class="nav-links" id="nav-links">
+                <ul class="flex">
+                    <li><a href="index.html" class="hover-link">Home</a></li>
+                    <li><a href="download.html" class="hover-link">Downloads</a></li>
+                    <li><a href="docs.html" class="hover-link">Documents</a></li>
+                    <li><a href="chat.html" class="hover-link active">Community</a></li>
+                    <li><a href="about.html" class="hover-link">About Us</a></li>
+                    <li class="user-menu">
+                        <a href="#" class="hover-link secondary-button short-button" id="userEmail"><span id="loggedUserEmail"></span></a>
+                        <!-- User Details Popup -->
+                        <div class="user-popup" id="userPopup">
+                            <div class="popup-content">
+                                <div class="user-details">
+                                    <p>Name: &nbsp;<span id="popupFName"></span>&nbsp;<span id="popupLName"></span></p>
+                                    <p>Email:&nbsp;<span id="popupEmail"></span></p>
+                                </div>
+                                <button id="logoutBtn" class="logout-button">Logout</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <a href="#" class="nav-toggle hover-link" id="nav-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </a>
+            <button id="darkModeToggle" class="#">
+                <i class="fa-solid fa-moon" id="darkModeIcon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <div class="header-section container">
+        <h1><i class="fas fa-comments icon-header"></i><br>Community Forum</h1>
+        <p>Join the discussion, ask questions, and connect with other PrayasOS users</p>
+    </div>
+
+    <button class="ask-question-btn" id="askQuestionBtn">
+        <i class="fa-solid fa-plus"></i>
+        Ask a Question
+    </button>
+
+    <!-- Chat Container -->
+    <div class="chat-container">
+        <form class="question-form" id="questionForm">
+            <div class="form-group">
+                <label for="questionTitle"><i class="fas fa-heading feature-icon"></i>Question Title</label>
+                <input type="text" id="questionTitle" required placeholder="Enter a clear title for your question">
+            </div>
+            <div class="form-group">
+                <label for="questionDescription"><i class="fas fa-align-left feature-icon"></i>Question Description</label>
+                <textarea id="questionDescription" required placeholder="Describe your question in detail..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">
+                <i class="fas fa-paper-plane"></i>
+                Post Question
+            </button>
+        </form>
+        <div id="successMessage" class="success-message">
+            <i class="fas fa-check-circle"></i>
+            Your question has been posted successfully!
+        </div>
+
+        <!-- Questions List -->
+        <div class="questions-list" id="questionsList">
+            <!-- Questions will be dynamically added here -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <button id="prevPage" class="page-btn" disabled>
+                <i class="fas fa-chevron-left"></i>
+                Previous
+            </button>
+            <button id="nextPage" class="page-btn">
+                Next
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- subfooter -->
+    <div class="subfooter">
+        <div class="container flex subfooter-container">
+            <a class="hover-link" href="#">Contacts Team<br></a>
+            <a class="hover-link" href="#">Privacy Policy<br></a>
+            <a class="hover-link" href="#">Terms & Conditions</a>
+            <a class="hover-link" href="#"> PrayasOS © Copyright-2025</a>
+
+        </div>
+    </div>
+
+    <!-- script -->
+    <script src="https://kit.fontawesome.com/c1fc3d2826.js" crossorigin="anonymous"></script>
+    <script type="module" src="chat.js"></script>
+    <script>
+        const toggleButton = document.getElementById('nav-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        if (toggleButton) {
+            toggleButton.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        const darkModeToggle = document.getElementById('darkModeToggle');
+            const image = document.getElementById('mainlogo');
+            const bigimage = document.getElementById('biglogo');
+            const root = document.documentElement;
+            const icon = document.getElementById('darkModeIcon');
+
+            // Check localStorage for dark mode state
+            let isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+            // Apply initial state
+            if (isDarkMode) {
+                applyDarkMode();
+            }
+
+            function applyDarkMode() {
+                root.style.setProperty('--primary-text-color', '#d3e0ea');
+                root.style.setProperty('--secondary-text-color', '#b0b8c1');
+                root.style.setProperty('--accent-color', '#66ffcc');
+                root.style.setProperty('--accent-color-dark', '#33bbee');
+                root.style.setProperty('--nav-bg-color', 'rgba(17, 17, 27, 0.95)');
+                root.style.setProperty('--nav-text-color', '#d9bfff');
+                root.style.setProperty('--nav-hover-color', '#e0c2ff');
+                root.style.setProperty('--all-white', '#000000');
+                root.style.setProperty('--all-black', '#ffffff');
+                root.style.setProperty('--popup-bg-color', '#1c86efd5');
+                if (image) image.src = './assets/asset 11.png';
+                if (bigimage) bigimage.src = './assets/asset 11.png';
+                document.body.style.backgroundImage = "url('./assets/darkbackground1.png')";
+                if (icon) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                }
+            }
+
+            function applyLightMode() {
+                root.style.setProperty('--primary-text-color', '#183b56');
+                root.style.setProperty('--secondary-text-color', '#2f3030');
+                root.style.setProperty('--accent-color', '#10A37F');
+                root.style.setProperty('--accent-color-dark', '#0673b7');
+                root.style.setProperty('--nav-bg-color', 'rgba(24, 24, 37, 0.8)');
+                root.style.setProperty('--nav-text-color', 'rgb(55, 0, 122)');
+                root.style.setProperty('--nav-hover-color', '#a78bfa');
+                root.style.setProperty('--all-white', '#ffffff');
+                root.style.setProperty('--all-black', '#000000');
+                root.style.setProperty('--popup-bg-color', '#ffffff');
+                if (image) image.src = './assets/asset 1.png';
+                if (bigimage) bigimage.src = './assets/asset 1.png';
+                document.body.style.backgroundImage = "url('./assets/background.png')";
+                if (icon) {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            }
+
+            if (darkModeToggle) {
+                darkModeToggle.addEventListener('click', () => {
+                    isDarkMode = !isDarkMode;
+                    localStorage.setItem('darkMode', isDarkMode);
+
+                    if (isDarkMode) {
+                        applyDarkMode();
+                    } else {
+                        applyLightMode();
+                    }
+                });
+            }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrayasOS </title>
+    <link rel="icon" type="image/png" href="./assets/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media-queries.css">
+    <script type="module" src="auth-check.js"></script>
+    <style>
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .examples-card {
+            transition: transform 0.3s ease;
+        }
+
+        .examples-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-text {
+            line-height: 1.4;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <!-- nav bar -->
+    <nav class="nav-with-banner">
+        <div class="container main-nav flex">
+            <a href="#" class="company-logo">
+                <img src="./assets/asset 1.png" alt="company logo" id="mainlogo" class="hero-image">
+            </a>
+            <div class="nav-links" id="nav-links">
+                <ul class="flex">
+                    <li><a href="index.html" class="hover-link">Home</a></li>
+                    <li><a href="download.html" class="hover-link">Downloads</a></li>
+                    <li><a href="docs.html" class="hover-link">Documents</a></li>
+                    <li><a href="chat.html" class="hover-link">Community</a></li>
+                    <li><a href="about.html" class="hover-link">About Us</a></li>
+                    <li><a href="signup.html" class="hover-link secondary-button">Sign in</a></li>
+                    <li class="user-menu" style="display: none;">
+                        <a href="#" class="hover-link secondary-button short-button" id="userEmail">
+                            <span id="loggedUserEmail"></span>
+                        </a>
+                        <!-- User Details Popup -->
+                        <div class="user-popup" id="userPopup">
+                            <div class="popup-content">
+                                <div class="user-details">
+                                    <p>Name: &nbsp;<span id="popupFName"></span>&nbsp;<span id="popupLName"></span></p>
+                                    <p>Email:&nbsp;<span id="popupEmail"></span></p>
+                                </div>
+                                <button id="logoutBtn" class="logout-button">Logout</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <a href="#" class="nav-toggle hover-link" id="nav-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </a>
+            <button id="darkModeToggle" class="#">
+                <i class="fa-solid fa-moon" id="darkModeIcon"></i>
+            </button>
+        </div>
+    </nav>
+    <div>
+
+        <!-- User Details Popup -->
+        <div class="user-popup" id="userPopup">
+            <div class="popup-content">
+                <div class="user-details">
+                    <p>First Name: <span id="popupFName"></span></p>
+                    <p>Last Name: <span id="popupLName"></span></p>
+                    <p>Email: <span id="popupEmail"></span></p>
+                </div>
+                <button id="logoutBtn" class="logout-button">Logout</button>
+            </div>
+        </div>
+        <!-- companies section -->
+
+        <section class="hide">
+            <div>
+                <div id="nospace" class="small-bold-text ">
+                    <marquee behavior="scroll" scrollamount="5" direction="left" loop="1">New Updates relesed Every
+                        month
+                        according to most asked questions</marquee>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- header section -->
+        <header>
+            <div class="topspace ">
+                <div class="header-right hero-image">
+                    <img src="./assets/asset 1.png" alt="hero image" class="hero-image " id="biglogo">
+                </div>
+                <div class="header-left container">
+                    <h1>Join the PrayasOS Community</h1>
+                    <p>Experience ultimate performance on low-end devices with our ultra-lightweight, fully customized
+                        OS—optimized for efficiency like no other!.</p>
+                    <a href="signup.html" class="primary-button ">Get Started</a>
+                    <a href="docs.html" class="primary-button ">How to install</a>
+                </div>
+
+            </div>
+        </header>
+
+
+
+        <!-- features section -->
+
+        <section class="features-section">
+            <div class="container">
+                <div class="features-header">
+                    <h2 class="features-heading-text">Didn't find an answer?</h2>
+                    <a href="signup.html" class="secondary-button">Ask a new Question <i
+                            class="fa-solid fa-right-long"></i></a>
+                </div>
+                <div class="features-area flex">
+                    <div class="features-card flex">
+                        <img src="./assets/asset 11.svg" alt="">
+                        <h4>200+ <br> average daily visitors</h4>
+
+                    </div>
+                    <div class="features-card flex">
+                        <img src="./assets/asset 13.svg" alt="">
+                        <h4>6000+ <br> total users</h4>
+
+
+                    </div>
+                    <div class="features-card flex">
+                        <img src="./assets/asset 14.svg" alt="">
+                        <h4>1000+ <br> active users</h4>
+
+
+                    </div>
+                    <div class="features-card flex">
+                        <img src="./assets/asset 15.svg" alt="">
+                        <h4>330+ <br> customers helped annually</h4>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- examples section -->
+
+        <section class="examples-section">
+            <div class="container">
+                <div class="examples-header flex">
+                    <h2 class="examples-heading-text">One platform, endless possibilities</h2>
+                    <a href="docs.html" class="secondary-button">View Documentation <i class="fa-solid fa-right-long"></i></a>
+                </div>
+                <div class="examples-area flex">
+                    <a href="download.html#requirements-section" class="examples-card" style="background: linear-gradient(rgb(0, 0, 0, 0.1), rgb(0, 0, 0, 0.8)), url(./assets/asset\ 34.jpeg); background-size: cover;">
+                        <h3 class="card-text">Two Versions Available<br>Type 1 & Type 2</h3>
+                    </a>
+                    <a class="examples-card" href="docs.html" style="background: linear-gradient(rgb(0, 0, 0, 0.1), rgb(0, 0, 0, 0.8)), url(./assets/asset\ 34.jpeg); background-size: cover;">
+                        <h3 class="card-text">Comprehensive Documentation<br>& Installation Guide</h3>
+                    </a>
+                    <a class="examples-card" href="download.html" style="background: linear-gradient(rgb(0, 0, 0, 0.1), rgb(0, 0, 0, 0.8)), url(./assets/asset\ 34.jpeg); background-size: cover;">
+                        <h3 class="card-text">Built-in App Store<br>Free Apps & Updates</h3>
+                    </a>
+                    <a class="examples-card" href="chat.html" style="background: linear-gradient(rgb(0, 0, 0, 0.1), rgb(0, 0, 0, 0.8)), url(./assets/asset\ 34.jpeg); background-size: cover;">
+                        <h3 class="card-text">Active Community Support<br>24/7 Assistance</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- cta section -->
+
+        <section class="cta-section">
+            <div class="container flex cta-section-container">
+                <h2>Start Your Journey with PrayasOS</h2>
+                <p>Choose your version, follow our easy installation guide, and join our growing community!</p>
+                <div class="cta-buttons">
+                    <a href="download.html" class="primary-button">Download Now</a>
+                    <a href="docs.html" class="primary-button">View Guide</a>
+                    <a href="chat.html" class="primary-button">Join Community</a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- subfooter -->
+
+        <div class="subfooter">
+            <div class="container flex subfooter-container">
+                <a class="hover-link" href="#">Contacts Team<br></a>
+                <a class="hover-link" href="#">Privacy Policy<br></a>
+                <a class="hover-link" href="#">Terms & Conditions</a>
+                <a class="hover-link" href="#"> PrayasOS © Copyright-2025</a>
+
+            </div>
+        </div>
+
+        <script src="https://kit.fontawesome.com/c1fc3d2826.js" crossorigin="anonymous"></script>
+        <script type="module" src="homepage.js"></script>
+
+        <script>
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const image = document.getElementById('mainlogo');
+            const bigimage = document.getElementById('biglogo');
+            const root = document.documentElement;
+            const icon = document.getElementById('darkModeIcon');
+
+            // Check localStorage for dark mode state
+            let isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+            // Apply initial state
+            if (isDarkMode) {
+                applyDarkMode();
+            }
+
+            function applyDarkMode() {
+                root.style.setProperty('--primary-text-color', '#d3e0ea');
+                root.style.setProperty('--secondary-text-color', '#b0b8c1');
+                root.style.setProperty('--accent-color', '#66ffcc');
+                root.style.setProperty('--accent-color-dark', '#33bbee');
+                root.style.setProperty('--nav-bg-color', 'rgba(17, 17, 27, 0.95)');
+                root.style.setProperty('--nav-text-color', '#d9bfff');
+                root.style.setProperty('--nav-hover-color', '#e0c2ff');
+                root.style.setProperty('--all-white', '#000000');
+                root.style.setProperty('--all-black', '#ffffff');
+                root.style.setProperty('--popup-bg-color', '#1c86efd5');
+                if (image) image.src = './assets/asset 11.png';
+                if (bigimage) bigimage.src = './assets/asset 11.png';
+                document.body.style.backgroundImage = "url('./assets/darkbackground1.png')";
+                if (icon) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                }
+            }
+
+            function applyLightMode() {
+                root.style.setProperty('--primary-text-color', '#183b56');
+                root.style.setProperty('--secondary-text-color', '#2f3030');
+                root.style.setProperty('--accent-color', '#10A37F');
+                root.style.setProperty('--accent-color-dark', '#0673b7');
+                root.style.setProperty('--nav-bg-color', 'rgba(24, 24, 37, 0.8)');
+                root.style.setProperty('--nav-text-color', 'rgb(55, 0, 122)');
+                root.style.setProperty('--nav-hover-color', '#a78bfa');
+                root.style.setProperty('--all-white', '#ffffff');
+                root.style.setProperty('--all-black', '#000000');
+                root.style.setProperty('--popup-bg-color', '#ffffff');
+                if (image) image.src = './assets/asset 1.png';
+                if (bigimage) bigimage.src = './assets/asset 1.png';
+                document.body.style.backgroundImage = "url('./assets/background.png')";
+                if (icon) {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            }
+
+            if (darkModeToggle) {
+                darkModeToggle.addEventListener('click', () => {
+                    isDarkMode = !isDarkMode;
+                    localStorage.setItem('darkMode', isDarkMode);
+
+                    if (isDarkMode) {
+                        applyDarkMode();
+                    } else {
+                        applyLightMode();
+                    }
+                });
+            }
+        </script>
+
+        <script>
+            const toggleButton = document.getElementById('nav-toggle');
+            const navLinks = document.getElementById('nav-links');
+
+            if (toggleButton) {
+                toggleButton.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                });
+            }
+        </script>
+</body>
+
+</html>

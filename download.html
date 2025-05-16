@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloads - PrayasOS</title>
+    <link rel="icon" type="image/png" href="./assets/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media-queries.css">
+    <script type="module" src="auth-check.js"></script>
+    <style>
+        .icon-header {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-icon {
+            font-size: 1.2rem;
+            margin-right: 10px;
+            color: var(--accent-color);
+            width: 20px;
+            display: inline-block;
+        }
+
+        .download-card h3 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .download-card h3 i {
+            font-size: 1.5rem;
+        }
+
+        .requirements-icon {
+            display: inline-block;
+            width: 25px;
+            color: var(--accent-color);
+        }
+
+        .download-button-icon {
+            margin-left: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- nav bar -->
+    <nav class="nav-with-banner">
+        <div class="container main-nav flex">
+            <a href="#" class="company-logo">
+                <img src="./assets/asset 1.png" alt="company logo" id="mainlogo" class="hero-image">
+            </a>
+            <div class="nav-links" id="nav-links">
+                <ul class="flex">
+                    <li><a href="index.html" class="hover-link">Home</a></li>
+                    <li><a href="download.html" class="hover-link active">Downloads</a></li>
+                    <li><a href="docs.html" class="hover-link">Documents</a></li>
+                    <li><a href="chat.html" class="hover-link">Community</a></li>
+                    <li><a href="about.html" class="hover-link">About Us</a></li>
+                    <li><a href="signup.html" class="hover-link secondary-button">Sign in</a></li>
+                    <li class="user-menu" style="display: none;">
+                        <a href="#" class="hover-link secondary-button short-button" id="userEmail">
+                            <span id="loggedUserEmail"></span>
+                        </a>
+                        <!-- User Details Popup -->
+                        <div class="user-popup" id="userPopup">
+                            <div class="popup-content">
+                                <div class="user-details">
+                                    <p>Name: &nbsp;<span id="popupFName"></span>&nbsp;<span id="popupLName"></span></p>
+                                    <p>Email:&nbsp;<span id="popupEmail"></span></p>
+                                </div>
+                                <button id="logoutBtn" class="logout-button">Logout</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <a href="#" class="nav-toggle hover-link" id="nav-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </a>
+            <button id="darkModeToggle" class="#">
+                <i class="fa-solid fa-moon" id="darkModeIcon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- header section -->
+    <header>
+        <div class="topspace">
+            <!-- <div class="header-right hero-image">
+                <img src="./assets/asset 1.png" alt="hero image" class="hero-image" id="biglogo">
+            </div> -->
+            <div class="header-left container">
+                <h1><i class="fas fa-download icon-header"></i><br>Download PrayasOS</h1>
+                <p>Get started with our ultra-lightweight, fully customized OS—optimized for efficiency like no other!</p>
+                <a href="#" class="primary-button" onclick="showSection('download')">Download Now <i class="fas fa-cloud-download-alt"></i></a>
+                <a href="#" class="primary-button" onclick="showSection('requirements')">System Requirements <i class="fas fa-laptop"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- System Requirements Section -->
+    <section class="download-section" id="requirements-section" style="display: none;">
+        <div class="container">
+            <h2>System Requirements</h2>
+            <div class="download-cards flex">
+                <div class="download-card">
+                    <h3><i class="fas fa-feather-alt"></i> PrayasOS Type 1</h3>
+                    <p>Minimum Requirements:</p>
+                    <ul>
+                        <li><i class="fas fa-microchip requirements-icon"></i> CPU: 1 GHz dual-core processor</li>
+                        <li><i class="fas fa-memory requirements-icon"></i> RAM: 1 GB</li>
+                        <li><i class="fas fa-hdd requirements-icon"></i> Storage: 8 GB</li>
+                        <li><i class="fas fa-desktop requirements-icon"></i> Graphics: Basic integrated graphics</li>
+                        <li><i class="fas fa-tv requirements-icon"></i> Display: 1024x768 resolution</li>
+                    </ul>
+                </div>
+                <div class="download-card">
+                    <h3><i class="fas fa-rocket"></i> PrayasOS Type 2</h3>
+                    <p>Recommended Requirements:</p>
+                    <ul>
+                        <li><i class="fas fa-microchip requirements-icon"></i> CPU: 2 GHz quad-core processor</li>
+                        <li><i class="fas fa-memory requirements-icon"></i> RAM: 4 GB</li>
+                        <li><i class="fas fa-hdd requirements-icon"></i> Storage: 20 GB</li>
+                        <li><i class="fas fa-desktop requirements-icon"></i> Graphics: OpenGL 2.0 compatible</li>
+                        <li><i class="fas fa-tv requirements-icon"></i> Display: 1920x1080 resolution</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download-section" id="download-section">
+        <div class="container">
+            <h2>Available Versions</h2>
+            <div class="download-cards flex">
+                <div class="download-card">
+                    <h3><i class="fas fa-feather-alt"></i> PrayasOS type 1</h3>
+                    <p>Perfect for older hardware</p>
+                    <ul>
+                        <li><i class="fas fa-check feature-icon"></i> Minimal system requirements</li>
+                        <li><i class="fas fa-box feature-icon"></i> Basic applications included</li>
+                        <li><i class="fas fa-leaf feature-icon"></i> Lightweight desktop environment</li>
+                    </ul>
+                    <a href="https://drive.usercontent.google.com/download?id=1dlIfw98mvvGQFWbP2y4zlJ1Qw-AQA7XS&export=download&authuser=0" class="secondary-button" target="_blank">Download Type 1 <i class="fas fa-download download-button-icon"></i></a>
+                </div>
+                <div class="download-card">
+                    <h3><i class="fas fa-rocket"></i> PrayasOS type 2</h3>
+                    <p>Recommended for most users</p>
+                    <ul>
+                        <li><i class="fas fa-tachometer-alt feature-icon"></i> Balanced performance</li>
+                        <li><i class="fas fa-th feature-icon"></i> Full application suite</li>
+                        <li><i class="fas fa-paint-brush feature-icon"></i> Modern desktop environment</li>
+                    </ul>
+                    <a href="https://drive.usercontent.google.com/download?id=1dlIfw98mvvGQFWbP2y4zlJ1Qw-AQA7XS&export=download&authuser=0" class="secondary-button" target="_blank">Download Type 2 <i class="fas fa-download download-button-icon"></i></a>
+                </div>
+                <div class="download-card">
+                    <h3><i class="fas fa-store"></i> App Store - PrayasOS</h3>
+                    <p>For our users</p>
+                    <ul>
+                        <li><i class="fas fa-cubes feature-icon"></i> All apps in one place</li>
+                        <li><i class="fas fa-gift feature-icon"></i> All apps are free</li>
+                        <li><i class="fas fa-sync feature-icon"></i> All apps are updated</li>
+                    </ul>
+                    <a href="https://drive.usercontent.google.com/download?id=1dlIfw98mvvGQFWbP2y4zlJ1Qw-AQA7XS&export=download&authuser=0" class="secondary-button" target="_blank">Download App Store <i class="fas fa-download download-button-icon"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- subfooter -->
+    <div class="subfooter">
+        <div class="container flex subfooter-container">
+            <a class="hover-link" href="#">Contacts Team<br></a>
+            <a class="hover-link" href="#">Privacy Policy<br></a>
+            <a class="hover-link" href="#">Terms & Conditions</a>
+            <a class="hover-link" href="#"> PrayasOS © Copyright-2025</a>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/c1fc3d2826.js" crossorigin="anonymous"></script>
+    <script type="module" src="homepage.js"></script>
+
+    <script>
+        const toggleButton = document.getElementById('nav-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        toggleButton.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const image = document.getElementById('mainlogo');
+        // const bigimage = document.getElementById('biglogo');
+        const root = document.documentElement;
+        const icon = document.getElementById('darkModeIcon');
+
+        // Check localStorage for dark mode state
+        let isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+        // Apply initial state
+        if (isDarkMode) {
+            applyDarkMode();
+        }
+
+        function applyDarkMode() {
+            root.style.setProperty('--primary-text-color', '#d3e0ea');
+            root.style.setProperty('--secondary-text-color', '#b0b8c1');
+            root.style.setProperty('--accent-color', '#66ffcc');
+            root.style.setProperty('--accent-color-dark', '#33bbee');
+            root.style.setProperty('--nav-bg-color', 'rgba(17, 17, 27, 0.95)');
+            root.style.setProperty('--nav-text-color', '#d9bfff');
+            root.style.setProperty('--nav-hover-color', '#e0c2ff');
+            root.style.setProperty('--all-white', '#000000');
+            root.style.setProperty('--all-black', '#ffffff');
+            root.style.setProperty('--popup-bg-color', '#1c86efd5');
+            image.src = './assets/asset 11.png';
+            // bigimage.src = './assets/asset 11.png';
+            document.body.style.backgroundImage = "url('./assets/darkbackground1.png')";
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+
+        function applyLightMode() {
+            root.style.setProperty('--primary-text-color', '#183b56');
+            root.style.setProperty('--secondary-text-color', '#2f3030');
+            root.style.setProperty('--accent-color', '#10A37F');
+            root.style.setProperty('--accent-color-dark', '#0673b7');
+            root.style.setProperty('--nav-bg-color', 'rgba(24, 24, 37, 0.8)');
+            root.style.setProperty('--nav-text-color', 'rgb(55, 0, 122)');
+            root.style.setProperty('--nav-hover-color', '#a78bfa');
+            root.style.setProperty('--all-white', '#ffffff');
+            root.style.setProperty('--all-black', '#000000');
+            root.style.setProperty('--popup-bg-color', '#ffffff');
+            image.src = './assets/asset 1.png';
+            // bigimage.src = './assets/asset 1.png';
+            document.body.style.backgroundImage = "url('./assets/background.png')";
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            isDarkMode = !isDarkMode;
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            if (isDarkMode) {
+                applyDarkMode();
+            } else {
+                applyLightMode();
+            }
+        });
+    </script>
+
+    <script>
+        // Add this before the existing scripts
+        function showSection(section) {
+            const downloadSection = document.getElementById('download-section');
+            const requirementsSection = document.getElementById('requirements-section');
+            
+            if (section === 'download') {
+                downloadSection.style.display = 'block';
+                requirementsSection.style.display = 'none';
+            } else if (section === 'requirements') {
+                downloadSection.style.display = 'none';
+                requirementsSection.style.display = 'block';
+            }
+        }
+
+        // Show download section by default
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('download');
+        });
+    </script>
+</body>
+
+</html> 
