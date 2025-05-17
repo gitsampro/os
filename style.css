@@ -1352,7 +1352,7 @@ nav {
     object-fit: cover;
     object-position: center;
     transition: transform 0.5s ease, filter 0.3s ease;
-    filter: brightness(1.2);
+    filter: brightness(1);
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
     -webkit-font-smoothing: antialiased;
@@ -1365,7 +1365,7 @@ nav {
 
 .team-card:hover .team-image {
     transform: scale(1.1) rotate(5deg);
-    filter: brightness(1.5);
+    filter: brightness(1);
 }
 
 .team-card:hover .team-image-container {
