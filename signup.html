@@ -99,6 +99,7 @@
         const darkModeToggle = document.getElementById('darkModeToggle');
         const image = document.getElementById('mainlogo');
         const bigimage = document.getElementById('biglogo');
+const bigimage1 = document.getElementById('biglogo1');
         const root = document.documentElement;
         const icon = document.getElementById('darkModeIcon');
 
@@ -122,6 +123,7 @@
             root.style.setProperty('--all-black', '#ffffff');
             if (image) image.src = './assets/asset 11.png';
             if (bigimage) bigimage.src = './assets/asset 11.png';
+if (bigimage1) bigimage1.src = './assets/asset 11.png';
             document.body.style.backgroundImage = "url('./assets/darkbackground1.png')";
             if (icon) {
                 icon.classList.remove('fa-moon');
@@ -141,6 +143,7 @@
             root.style.setProperty('--all-black', '#000000');
             if (image) image.src = './assets/asset 1.png';
             if (bigimage) bigimage.src = './assets/asset 1.png';
+if (bigimage1) bigimage1.src = './assets/asset 1.png';
             document.body.style.backgroundImage = "url('./assets/background.png')";
             if (icon) {
                 icon.classList.remove('fa-sun');
